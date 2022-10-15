@@ -1,10 +1,10 @@
 :root {
-    --muted-color: rgba(255, 255, 255, 0.5);
+    --muted-color: #000000;
 }
 
 
 body {
-  background: #15202b;
+  background: rgba(0, 100, 0, 0.8);
   color: var(--muted-color);
   margin-top: 5rem;
 }
@@ -18,7 +18,7 @@ ul {
 }
 
 .bg-steel {
-  background-color: #15202b;
+  background-color: rgba(0, 100, 0, 0.8);
 }
 
 .site-header .navbar-nav .nav-link {
@@ -71,9 +71,9 @@ ul {
 }
 
 a {
-    color: white;
+
     text-underline: none;
-     text-decoration: none !important;
+    text-decoration: none !important;
 }
 a:hover {
     color: #00FBD7;
@@ -88,8 +88,12 @@ article {
 }
 
 .white-important {
-    color: white;
+    color: black;
     font-weight: bold;
+}
+.black-important {
+    color: black !important;
+    font-weight: bold !important;
 }
 
 .full-width {
@@ -97,11 +101,11 @@ article {
 }
 
 .btn-outline-primary {
-    border-color: white;
+    border-color: rgba(0, 100, 0, 0.8);
     color: white !important;
     padding: 12px 80px 12px 80px;
     font-weight: bold;
-    background-color: #1da1f2;
+    background-color: rgba(0, 100, 0, 0.8);
     border:0;
     border-radius: 25px;
 }
@@ -117,8 +121,8 @@ article {
 }
 
 .form-control {
-    background-color: #36405e !important;
-    color: var(--muted-color) !important;
+    background-color: #ffffff !important;
+    color: black !important;
     box-shadow: 0 0 0 0 !important;
     border-radius: 20px !important;
 }
@@ -126,7 +130,7 @@ article {
 textarea:focus, input:focus {
     box-shadow: 0 0 0 0 !important;
     border-color: #00FBD7 !important;
-    color: white !important;
+    color: black !important;
 }
 
 .alert-success {
@@ -172,38 +176,44 @@ ul {
 }
 
 .hovered-tweet {
-    background-color: #90909017;
+    background-color: white;
+    color: black;
     border-radius: 20px;
 }
 
 .hovered-tweet {
     border: 1px solid transparent;
+
 }
 
 .hovered-tweet:hover {
-    -webkit-transition: background-color ease-in-out .2s;
+
     -webkit-transition: border ease-in-out .2s;
-    background-color: #2d3741 !important;
-    border: 1px solid rgba(255, 255, 255, 1);
+
+    border: 2px solid black;
     border-radius: 20px;
 }
 
 .hovered-tweet-comment {
-    background-color: #2d3741 !important;
+    background-color: white !important;
     padding:15px;
     border-radius: 20px;
     border:1px solid grey;
 }
-
+.fasblack {
+    color: #000000;
+    font-weight: bold;
+}
 .hovered-tweet-comment-in{
-    background-color: #2d3741 !important;
+    background-color: white !important;
+    color: black !important;
     padding:12px;
     border-radius: 20px;
 }
 
 input[type="file"]::-webkit-file-upload-button {
     color: white !important;
-    background-color: #15202b !important;
+    background-color: #1e7e34 !important;
     border-radius: 4px;
     border: 1px solid white;
 }
@@ -224,7 +234,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .profile-section{
-  background-color: #2d3741;
+  background-color: #e9ecef;
   padding: 5px;
   border-radius: 25px;
 }

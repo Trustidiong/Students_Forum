@@ -1,14 +1,16 @@
 {% extends "blog/base.html" %}
 {% load static %}
 {% block content %}
+
     <div class="row">
+        <script>window.alert("Hello")</script>
         <div class="col-12 col-md-3 pr-4 dont-move">
-            <a href="/"> <h2><img class="img-fluid" width="60" src="{% static 'blog/logo.png' %}">BlogRoom</h2></a><br>
+            <a href="/"> <h2><img class="img-fluid" width="60" src="{% static 'blog/noun.jpeg' %}">Students Forum</h2></a><br>
             <div class="profile-section">
-            <h3 class="white-important p-2">
+            <h3 class="text-dark font-weight-bold text-center p-2">
                 Profile
             </h3>
-            <article class="media content-section" style="height: 140px; width: 100%">
+            <article class="media content-section text-dark" style="height: 140px; width: 100%">
                 {%  if user_profile != None %}
                     <div class="mt-2 d-flex full-width align-items-center">
                         <img
@@ -17,7 +19,7 @@
                            src="{{ user_profile.profile.image.url }}">
                         <div>
                             <h4 style="text-align: left"
-                                    class="white-important">
+                                    class="text-dark font-weight-bold">
                                 {{ user_profile.username }}
                             </h4>
                             <h6 style="text-align: left"
@@ -35,7 +37,7 @@
                            src="{{ user.profile.image.url }}">
                         <div>
                             <h4 style="text-align: left"
-                                    class="white-important">
+                                    class="black-important">
                                 {{ user.username }}
                             </h4>
                             <h6 style="text-align: left"
@@ -55,16 +57,16 @@
                             Following
                     </div>
                     {%  if user_profile != None %}
-                        <div class="col-6">
-                            <h3 class="white-important follow-click">
-                                <a href="{% url 'user-followers' user_profile.username %}">
+                        <div class="col-6 text-dark black-important">
+                            <h3 class="black-important follow-click">
+                                <a href="{% url 'user-followers' user_profile.username %}" class="fasblack">
                                     {{ user_profile.profile.followers }}
                                 </a>
                             </h3>
                         </div>
-                         <div class="col-6">
+                         <div class="col-6 black-important">
                             <a href="{% url 'user-follows' user_profile.username %}">
-                                <h3 class="white-important follow-click">
+                                <h3 class="black-important follow-click text-dark">
                                     {{ user_profile.profile.following }}
                                 </h3>
                             </a>
@@ -93,7 +95,7 @@
                 {% if user_profile is None %}
                 <div style="margin-left: auto; margin-right:auto">
                     <a class="btn btn-sm btn-outline-primary mb-4 mr-3 " href="{% url 'post-create' %}">
-                        Tweet
+                        Create a Post
                     </a>
                 </div>
                 {% endif %}
@@ -120,7 +122,7 @@
             <div class="full-width row">
                 <div class="col-6">
                     <h3 class="white-important mb-3">
-                        Tweets
+                        Posts
                     </h3>
                 </div>
                  <div class="col-6 no-padding">
@@ -134,7 +136,7 @@
             </div>
 
             {% for post in posts %}
-                <article class="media content-section hovered-tweet">
+                <article class="media content-section hovered-tweet ">
                 <div style="width: 100%; word-break: break-all;">
 
                     <div class="pb-2 row m-0" style="width: 100%; margin-right: 0 !important;">
@@ -152,32 +154,33 @@
                        <div class="col-4 d-flex flex-row-reverse no-padding align-items-center"
                             style="padding-right: 0 !important;">
                            {% if post.author == user %}
-                                <a class="material-icons ml-2"
-                                   style="font-size: 14px"
+                                <a class="material-icons ml-2 text-danger"
+                                   style="font-size: 20px"
                                         href="{% url 'post-delete' post.id %}">clear</a>
-                                <a class="material-icons ml-2"
-                                   style="font-size: 14px"
+                                <a class="material-icons ml-2 text-success"
+                                   style="font-size: 20px"
                                         href="{% url 'post-update' post.id %}">update</a>
                             {%  endif %}
                        </div>
                    </div>
+
                     <div
-                            class="mb-2"
-                            style="width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.1)"></div>
+                            class="mb-2 "
+                            style="width: 100%; height: 1px; background-color: gray"></div>
                     <a
-                            style="color: rgba(255, 255, 255, 0.5) !important;"
+                            style="color: black;"
                             href="{% url 'post-detail' post.id %}">
-                        <p class="mb-4">
+                        <p class="mb-4 text-black">
                             {{ post.content }}
                         </p>
                     </a>
 
                         <div class="row">
-                            <div class="col-6" style="display: flex;">
-                                <small style="opacity: 0.4;">
+                            <div class="col-6 text-dark" style="display: flex;">
+                                <small style="opacity: 0.8;">
 
                                     <!-- Like Buttons Here -->
-                                    <a href="#" onClick="document.getElementById('likebutton').submit()"><i class="fas fa-thumbs-up"></i></a> {{post.likes}}   |   <a href="#" onClick="document.getElementById('dislikebutton').submit()"><i class="fas fa-thumbs-down"></i></a> {{post.dislikes}}
+                                    <a href="#" onClick="document.getElementById('likebutton').submit()"><i class="fasblack fas fa-thumbs-up"></i></a> {{post.likes}}   |   <a href="#" onClick="document.getElementById('dislikebutton').submit()"><i class="fasblack fas fa-thumbs-down"></i></a> {{post.dislikes}}
 
 
                                     <form id="likebutton" method="POST" action="{% url 'postpreference' post.id 1 %}">
@@ -192,16 +195,16 @@
 
 
                                 </small>
-                                <small style="opacity: 0.4; margin-left:15px;">
-                                    <a href="/post/{{post.id}}/">
-                                        <i style=" font-size: 16px;" class="far fa-comment"></i> {{ post.number_of_comments }} comment(s)
+                                <small style="opacity: 0.8; margin-left:15px;">
+                                    <a href="/post/{{post.id}}/" class="fasblack">
+                                        <i style=" font-size: 16px;" class="fasblack far fa-comment"></i> {{ post.number_of_comments }} comment(s)
                                     </a>
 
                                 </small>
                             </div>
                             <div class="col-6">
                                 <small
-                                        style="opacity: 0.4;"
+                                        style="opacity: 0.8;"
                                     class="white-important d-flex full-width flex-row-reverse">
                                     {{ post.date_posted | date:"H:i l, d.m.y" }}
                                 </small>
@@ -244,7 +247,7 @@
             <form action="{% url 'search' %}" method="post">{% csrf_token %}
                 <div class="search-container">
                     <div class="search">
-                    <input required name="search" type="text" id="zip-code-input" placeholder="Search Twitter">
+                    <input required name="search" type="text" id="zip-code-input" placeholder="Search Forum">
                     <button type="submit" style="border:0; background: transparent;"><i class="fa fa-search"></i> </button> </a>
                 </form>
               </div>
@@ -253,16 +256,16 @@
 
                 {%  if user_profile is None %}
 
-                <article class="t-section media content-section">
+                <article class="t-section media content-section bg-light">
 
                     <div class="row ">
-                        <div class="col-12">
-                            <h3>Who to follow</h3>
+                        <div class="col-12 ">
+                            <h5>People you can follow</h5>
                         </div>
-                        <ul class="col-12 mt-2">
+                        <ul class="col-12 mt-2 ">
                             {% for user in all_users %}
                                 <li>
-                                    <div class="who-to-follow">
+                                    <div class="who-to-follow ">
 
                                         <div
                                                style="padding-left: 0px !important;"
@@ -285,12 +288,7 @@
 
                 </article>
                 {% endif %}
-                <p><a href="">Terms</a>,
-<a href="">Privacy policy</a>,
-<a href="">Cookies</a>,
-<a href="">Ads info</a>,
-<a href="">More</a>
-© 2020 Twitter, Inc.</p>
+                <p>© 2022 Bosede Enitan James</p>
 
         </div>
     </div>
