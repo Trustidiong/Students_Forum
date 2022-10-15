@@ -317,6 +317,8 @@ def postpreference(request, postid, userpreference):
 def about(request):
     return render(request,'blog/about.html',)
 
+def student(request):
+    return render(request,'blog/student.html',)
 
 
 class UserViewSet(viewsets.ModelViewSet):

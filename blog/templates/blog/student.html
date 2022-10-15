@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/png" href="{% static 'blog/noun.jpeg' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-zrnmn8R8KkWl12rAZFt4yKjxplaDaT7/EUkKm7AovijfrQItFWR7O/JJn4DAa/gx" crossorigin="anonymous">
+
+        <title>Students Forum</title>
+    </head>
+<body>
+<div class="row "> <div class="col-12 text-center text-white bg-success "><h1 class = "checkhead mt-5 mb-2">Students Online Forum</h1></div> </div>
+<div class="row">
+  <div class="col-12">
+    <div class="jumbotron">
+        <h1 class="display-4">Identity Check</h1>
+        <p class="lead">Kindly answer the question below to verify that you are a member of the Department of Computer
+            Science, National Open University of Nigeria</p>
+        <hr class="my-4">
+        <div class="row text-center">
+            <div class="col-12">
+                 <p>Identify the present <strong> Head of Department </strong> among others</p>
+            </div>
+        </div>
+
+        <div class="row text-center mt-3">
+            <div class="col-3">
+                <a class="btn btn-secondary text-white btn-lg" onclick="a()" >Trust</a>
+            </div>
+            <div class="col-3">
+                <a class="btn btn-secondary text-white btn-lg" onclick="b()" >Bosede</a>
+            </div>
+            <div class="col-3">
+                <a class="btn btn-secondary text-white btn-lg" onclick="b()" >Ibrahim</a>
+            </div>
+            <div class="col-3">
+                <a class="btn btn-secondary text-white btn-lg" onclick="b()" >Thompson</a>
+            </div>
+
+        </div>
+
+    </div>
+  </div>
+</div>
+<script>
+function a(){
+       window.location.replace("{% url 'register-users' %}");
+        }
+function b(){
+       window.alert("Wrong! Proceed to learn more about NOUN")
+       window.location.assign("https://nou.edu.ng/");
+        }
+</script>
+</body>

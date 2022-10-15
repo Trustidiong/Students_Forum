@@ -251,4 +251,8 @@ input[type="file"]::-webkit-file-upload-button {
   font-size: 13px;
   outline: hidden;
 }
-
+.checkhead{
+    font-size: 45;
+    font-weight: bolder;
+    color: white !important;
+}
